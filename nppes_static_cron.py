@@ -20,7 +20,7 @@ def get_urls(soup):
 def download_and_extract(urls):
     for texts in urls:
         text = str(texts)
-        file = text[43:48]
+        file = text[105:110]
         print('zip file :', file)
         date = file[:6]
         fileDate = datetime.strptime(date, '%m%d%y').date()
