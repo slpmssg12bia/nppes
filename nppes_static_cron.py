@@ -11,7 +11,7 @@ import wget
 def get_urls(soup):
     urls = []
     for a in soup.find_all('a', href=True):
-        ul = a.find_all(text=re.compile("_Weekly.zip"))
+        ul = a.find_all(text=re.compile(" - Weekly Update - "))
         if ul != []:
             urls.append(a)
     print('done scraping the url......!!!!')
