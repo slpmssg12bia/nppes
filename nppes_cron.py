@@ -11,21 +11,17 @@ import wget
 def get_urls(soup):
     urls = []
     for a in soup.find_all('a', href=True):
-        ul = a.find_all(text=re.compile("Weekly Update"))
+        ul = a.find_all(text=re.compile("NPPES Data Dissemination"))
         if ul != []:
             urls.append(a)
-    print('done scraping the url......!!!!')
+    print('done scarping the url......!!!!')
     return urls
 
 def download_and_extract(urls):
     for texts in urls:
         text = str(texts)
-        file = text[11:56]
+        file = text[56:99]
         print('zip file :', file)
-        date = file[32:38]
-        print(date)
-        fileDate = datetime.strptime(date, '%m%d%y').date()
-        print('file date :', fileDate)
         zip_link = texts['href']
         print('Downloading %s :' %zip_link)
         slashurl = zip_link.split('/')
