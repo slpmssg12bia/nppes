@@ -50,7 +50,7 @@ chmod +x   clean.sh  nppes_dump_to_s3.sh  nppes_remove_old_dump.sh
 
 # install pip dependencies
 ```
-pip install -r zz_nppes_requirements.txt 
+pip install -r nppes_requirements.txt 
 ```
 # install Cron jobs for Parsing
 ```
@@ -65,7 +65,7 @@ crontab -e
 ```
 # Create Cron Job
 ```
-0 0 * * TUE  /home/ubuntu/nppes/python3 nppes_static_cron.py
+0 0 * * TUE  /home/ubuntu/nppes/python3  nppes_static_cron.py
 
 ctrl x
 
