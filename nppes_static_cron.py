@@ -35,10 +35,9 @@ def download_and_extract(urls):
         print("file downloaded....!!!")
         subprocess.run(["mv", slashurl[3], "db.zip"])
         subprocess.run(["unzip", "db.zip"])
-        subprocess.run(["bash","remove_old_dump.sh"])
         print("uploading the latest dump to s3")
-        subprocess.run(["bash", "dump_to_s3.sh"])
-        subprocess.run(["bash", "clean.sh"])
+        subprocess.run(["bash", "nppes_dump_to_s3.sh"])
+        subprocess.run(["bash", "nppes_clean.sh"])
         return
 
 r = requests.get('https://download.cms.gov/nppes/NPI_Files.html')
