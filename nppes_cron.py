@@ -32,7 +32,7 @@ def download_and_extract(urls):
         print(slashurl)
         wget.download("https://download.cms.gov/nppes/"+ slashurl[1])
         print("file downloaded....!!!")
-        subprocess.run(["mv", slashurl[3], "db.zip"])
+        subprocess.run(["mv", slashurl[1], "db.zip"])
         subprocess.run(["unzip", "db.zip"])
         print("uploading the latest dump to s3")
         subprocess.run(["bash", "nppes_dump_to_s3.sh"])
