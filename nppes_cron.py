@@ -11,7 +11,7 @@ import wget
 def get_urls(soup):
     urls = []
     for a in soup.find_all('a', href=True):
-        ul = a.find_all(text=re.compile(" - Weekly Update - "))
+        ul = a.find_all(text=re.compile("Weekly Update"))
         if ul != []:
             urls.append(a)
     print('done scraping the url......!!!!')
@@ -20,18 +20,17 @@ def get_urls(soup):
 def download_and_extract(urls):
     for texts in urls:
         text = str(texts)
-        file = text[113:118]
+        file = text[11:56]
         print('zip file :', file)
-        date = file[:6]
+        date = file[32:38]
+        print(date)
         fileDate = datetime.strptime(date, '%m%d%y').date()
         print('file date :', fileDate)
-        CurrentDate = datetime.today().date()
-        print('current date :',CurrentDate)
-       #if fileDate == CurrentDate:
         zip_link = texts['href']
         print('Downloading %s :' %zip_link)
         slashurl = zip_link.split('/')
-        wget.download(zip_link)
+        print(slashurl)
+        wget.download("https://download.cms.gov/nppes/"+ slashurl[1])
         print("file downloaded....!!!")
         subprocess.run(["mv", slashurl[3], "db.zip"])
         subprocess.run(["unzip", "db.zip"])
