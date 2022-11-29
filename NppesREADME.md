@@ -45,7 +45,7 @@ cd nppes
 ```
 # change permission of .sh files
 ```
-chmod +x   clean.sh  nppes_dump_to_s3.sh  nppes_remove_old_dump.sh
+chmod +x   nppes_clean.sh  nppes_dump_to_s3.sh 
 ```
 
 # install pip dependencies
