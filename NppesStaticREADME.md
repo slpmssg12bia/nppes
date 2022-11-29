@@ -65,7 +65,7 @@ crontab -e
 ```
 # Create Cron Job
 ```
-0 0 * * TUE  /home/ubuntu/nppes/python3  nppes_static_cron.py
+0 0 * * TUE  /home/ubuntu/nppes/python3  nppes_cron.py
 
 ctrl x
 
