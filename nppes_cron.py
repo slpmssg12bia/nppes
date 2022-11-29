@@ -20,7 +20,7 @@ def get_urls(soup):
 def download_and_extract(urls):
     for texts in urls:
         text = str(texts)
-        file = text[56:99]
+        file = text[55:99]
         print('zip file :', file)
         zip_link = texts['href']
         print('Downloading %s :' %zip_link)
