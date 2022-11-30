@@ -4,23 +4,22 @@ import subprocess
 import re
 from bs4 import BeautifulSoup
 import requests
-from datetime import datetime
 import wget
 
-# postgres_data.dmp
 def get_urls(soup):
     urls = []
     for a in soup.find_all('a', href=True):
-        ul = a.find_all(text=re.compile("NPPES Data Dissemination"))
+        ul = a.find_all(text=re.compile('NPPES Data Dissemination'))
         if ul != []:
             urls.append(a)
-    print('done scarping the url......!!!!')
+            break
+    print('done scraping the url...!')
     return urls
 
 def download_and_extract(urls):
     for texts in urls:
         text = str(texts)
-        file = text[55:99]
+        file = text[50:142]
         print('zip file :', file)
         zip_link = texts['href']
         print('Downloading %s :' %zip_link)
