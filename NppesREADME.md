@@ -34,7 +34,7 @@ aws s3 ls
 
 # Clone Git Repository
 ```
-git clone https://github.com/slpmssg12bia/nppes
+git clone https://github.com/slpmssg12bia/nppes.git
 
 
 ```
