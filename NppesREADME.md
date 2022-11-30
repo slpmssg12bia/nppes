@@ -32,7 +32,7 @@ aws s3 ls
 
 ```
 
-# Clone your Repo
+# Clone Git Repository
 ```
 git clone https://github.com/slpmssg12bia/nppes
 
@@ -63,7 +63,7 @@ crontab -e
 
 1
 ```
-# Create Cron Job
+# Create Monthly Cron Job
 ```
 0 0 1 * *  /home/ubuntu/nppes/python3  nppes_cron.py
 
