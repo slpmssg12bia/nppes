@@ -19,7 +19,9 @@ sudo ./aws/install
 ```
 aws configure
 
-#enter aws and secret keys
+AKIA6CZ442HWM64HSD7R
+
+tnrbtyMG2j+iYOiXP2BiBwpwWCvfe77FDuQndsBM
 
 us-east-1
 
