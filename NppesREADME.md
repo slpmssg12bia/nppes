@@ -11,7 +11,9 @@ sudo apt install python3-pip -y
 # Install AWS CLI 
 ```
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
 unzip awscliv2.zip
+
 sudo ./aws/install
 ```
 
@@ -61,13 +63,12 @@ sudo apt-get install cron
 ```
 # Open Cron Tab
 ```
-crontab -e
-
-1
+sudo su
+nano /etc/crontab
 ```
-# Create Monthly Cron Job
+# Create Cron Job
 ```
-0 0 1 * *  /home/ubuntu/nppes/python3  nppes_cron.py
+0 0 1 * *  root bash /home/ubuntu/nppes/nppes_cron.sh
 
 ctrl x
 
