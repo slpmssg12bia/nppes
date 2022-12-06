@@ -1,4 +1,4 @@
-# Cron jobs For Data Parsing 
+# Update Environment 
 
 ```
 sudo apt update 
@@ -6,7 +6,6 @@ sudo apt update
 sudo apt install unzip
 
 sudo apt install python3-pip -y
-
 ```
 # Install AWS CLI 
 ```
@@ -32,24 +31,64 @@ json
 Check the Buckets
 ```
 aws s3 ls
-
-
 ```
 
 # Clone Git Repository
 ```
-git clone https://github.com/slpmssg12bia/nppes.git
-
-
+git clone https://github.com/evalyticslabs/nppes.git
 ```
 # cd into the repository
 ```
 cd nppes
+```
+# Recreate bash Files
+```
+touch clean.sh
+nano clean.sh
 
+#!/bin/bash
+rm -rf dump
+rm db.zip
+
+ctrl X
+Y
+---------------------------------
+touch dump_to_s3.sh
+nano dump_to_s3.sh
+
+mkdir dump
+mv * dump
+aws s3 sync dump/ s3://viquity-database-import-us-east-1/Jobs/nppes/dump-"$(date +%d-%m-%y-%H-%M)"/
+
+ctrl X
+Y
+------------------------
+touch cron.sh
+nano cron.sh
+
+#!/bin/bash
+cd /home/ubuntu/nppes
+python3 /home/ubuntu/nppes/nppes_cron.py
+
+ctrl X
+Y
 ```
-# change permission of .sh files
+# Delete Original bash files
 ```
-chmod +x   nppes_clean.sh  nppes_dump_to_s3.sh   nppes_cron.sh
+rm nppes_clean.sh  nppes_dump_to_s3.sh  nppes_cron.sh
+```
+# Rename Original bash files
+```
+mv clean.sh nppes_clean.sh  
+
+mv dump_to_s3.sh nppes_dump_to_s3.sh  
+
+mv cron.sh nppes_cron.sh
+```
+
+# Change Permissions of .sh Files
+```
+chmod +x   nppes_clean.sh  nppes_dump_to_s3.sh  nppes_cron.sh
 ```
 
 # install pip dependencies
@@ -59,14 +98,16 @@ pip install -r nppes_requirements.txt
 # install Cron jobs for Parsing
 ```
 pwd
+
 sudo apt-get install cron
 ```
 # Open Cron Tab
 ```
-sudo su
+sudo
+
 nano /etc/crontab
 ```
-# Create Cron Job
+# Create Cron Job ~ https://crontab.guru/examples.html
 ```
 0 0 1 * *  root bash /home/ubuntu/nppes/nppes_cron.sh
 
