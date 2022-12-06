@@ -87,9 +87,6 @@ chmod +x   nppes_clean.sh  nppes_dump_to_s3.sh  nppes_cron.sh
 # install pip dependencies
 ```
 pip install -r nppes_requirements.txt 
-
-sudo 
-pip install -r nppes_requirements.txt 
 ```
 # install Cron jobs for Parsing
 ```
@@ -100,6 +97,8 @@ sudo apt-get install cron
 # Open Cron Tab
 ```
 sudo su
+
+pip install -r nppes_requirements.txt 
 
 nano /etc/crontab
 ```
