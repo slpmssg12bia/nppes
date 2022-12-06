@@ -43,8 +43,8 @@ cd nppes
 ```
 # Recreate bash Files
 ```
-touch clean.sh
-nano clean.sh
+touch nppes_clean.sh
+nano nppes_clean.sh
 
 #!/bin/bash
 rm -rf dump
@@ -53,8 +53,8 @@ rm db.zip
 ctrl X
 Y
 ---------------------------------
-touch dump_to_s3.sh
-nano dump_to_s3.sh
+touch nppes_dump_to_s3.sh
+nano nppes_dump_to_s3.sh
 
 mkdir dump
 mv * dump
@@ -63,8 +63,8 @@ aws s3 sync dump/ s3://viquity-database-import-us-east-1/Jobs/nppes/dump-"$(date
 ctrl X
 Y
 ------------------------
-touch cron.sh
-nano cron.sh
+touch nppes_cron.sh
+nano nppes_cron.sh
 
 #!/bin/bash
 cd /home/ubuntu/nppes
@@ -75,15 +75,7 @@ Y
 ```
 # Delete Original bash files
 ```
-rm nppes_clean.sh  nppes_dump_to_s3.sh  nppes_cron.sh
-```
-# Rename Original bash files
-```
-mv clean.sh nppes_clean.sh  
-
-mv dump_to_s3.sh nppes_dump_to_s3.sh  
-
-mv cron.sh nppes_cron.sh
+rm clean.sh  dump_to_s3.sh  cron.sh
 ```
 
 # Change Permissions of .sh Files
