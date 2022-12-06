@@ -79,7 +79,7 @@ Y
 rm clean.sh  dump_to_s3.sh  cron.sh
 ```
 
-# Change Permissions of .sh Files
+# Change Permissions of bash Files
 ```
 chmod +x   nppes_clean.sh  nppes_dump_to_s3.sh  nppes_cron.sh
 ```
