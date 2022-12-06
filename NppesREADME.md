@@ -1,6 +1,6 @@
 # Create Environment 
-Ubuntu, t2micro, generate key (or select existing), select security group: default, configure storage: 20, 
-modify IAM role > select: AmazonS3fullaccess, user must have SSH security access, connect with putty, login user ubuntu
+Ubuntu, t2micro, generate key (or select existing), select default security group, configure storage: 20, 
+modify IAM role > select AmazonS3fullaccess, user must have SSH security access, connect with putty, log into server as user: ubuntu
 
 # Update Environment 
 
