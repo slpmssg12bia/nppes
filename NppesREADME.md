@@ -1,3 +1,7 @@
+# Create Environment 
+Ubuntu, t2micro, generate key (or select existing), select default security group, configure storage: 20, 
+modify IAM role > select AmazonS3fullaccess, user must have SSH security access, connect with putty, login user ubuntu
+
 # Update Environment 
 
 ```
@@ -27,10 +31,6 @@ tnrbtyMG2j+iYOiXP2BiBwpwWCvfe77FDuQndsBM
 us-east-1
 
 json
-```
-Check the Buckets
-```
-aws s3 ls
 ```
 
 # Clone Git Repository
