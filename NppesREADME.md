@@ -103,6 +103,7 @@ nano /etc/crontab
 # Create Cron Job ~ https://crontab.guru/examples.html
 ```
 0 0 1 * *  root bash /home/ubuntu/nppes/nppes_cron.sh
+!!!CARRIAGE RETURN after line above!!!!!
 
 ctrl x
 
