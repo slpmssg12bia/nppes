@@ -95,7 +95,7 @@ sudo apt-get install cron
 ```
 # Open Cron Tab
 ```
-sudo
+sudo su
 
 nano /etc/crontab
 ```
