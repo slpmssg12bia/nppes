@@ -1,3 +1,3 @@
 #!/bin/bash
-rm -rf dump
+rm -rf nppesdump
 rm db.zip
