@@ -47,7 +47,7 @@ touch nppes_clean.sh
 nano nppes_clean.sh
 
 #!/bin/bash
-rm -rf dump
+rm -rf nppesdump
 rm db.zip
 
 ctrl X
@@ -57,9 +57,9 @@ touch nppes_dump_to_s3.sh
 nano nppes_dump_to_s3.sh
 
 #!/bin/bash
-mkdir dump
-mv *.csv *.pdf dump
-aws s3 sync dump/ s3://viquity-database-import-us-east-1/Jobs/nppes/dump-"$(date +%d-%m-%y-%H-%M)"/
+mkdir nppesdump
+mv *.csv *.pdf nppesdump
+aws s3 sync nppesdump/ s3://viquity-database-import-us-east-1/Jobs/nppes/nppesdump-"$(date +%d-%m-%y-%H-%M)"/
 
 ctrl X
 Y
@@ -69,7 +69,7 @@ nano nppes_cron.sh
 
 #!/bin/bash
 cd /home/ubuntu/nppes
-python3 /home/ubuntu/nppes/nppes_cron.py
+python3 nppes_cron.py
 
 ctrl X
 Y
