@@ -24,9 +24,9 @@ sudo ./aws/install
 ```
 aws configure
 
-AKIA6CZ442HWM64HSD7R
+aws key
 
-tnrbtyMG2j+iYOiXP2BiBwpwWCvfe77FDuQndsBM
+aws secret key
 
 us-east-1
 
