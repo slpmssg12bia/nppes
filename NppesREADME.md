@@ -43,27 +43,26 @@ cd nppes
 ```
 # Recreate bash Files
 ```
+
+touch nppes_archive_s3.sh
+nano nppes_archive_s3.sh
+
+#!/bin/bash
+aws s3 sync nppesdump/ s3://viquity-database-import-us-east-1/Jobs/nppes/nppes_archive/nppesdump-"$(date +%d-%m-%y-%H-%M)"/
+
+ctrl X
+Y
+
+---------------------------------
 touch nppes_clean.sh
 nano nppes_clean.sh
 
 #!/bin/bash
 rm -rf nppesdump
-rm db.zip
 
 ctrl X
 Y
 ---------------------------------
-touch nppes_dump_to_s3.sh
-nano nppes_dump_to_s3.sh
-
-#!/bin/bash
-mkdir nppesdump
-mv *.csv *.pdf nppesdump
-aws s3 sync nppesdump/ s3://viquity-database-import-us-east-1/Jobs/nppes/nppesdump-"$(date +%d-%m-%y-%H-%M)"/
-
-ctrl X
-Y
-------------------------
 touch nppes_cron.sh
 nano nppes_cron.sh
 
@@ -73,15 +72,37 @@ python3 nppes_cron.py
 
 ctrl X
 Y
+---------------------------------
+
+touch nppes_dump_to_s3.sh
+nano nppes_dump_to_s3.sh
+
+#!/bin/bash
+aws s3 sync nppesdump/ s3://viquity-database-import-us-east-1/Jobs/nppes/nppes_current_dump/nppesdump/
+
+ctrl X
+Y
+---------------------------------
+
+touch nppes_remove_old_dump.sh
+nano nppes_remove_old_dump.sh
+
+#!/bin/bash
+aws s3 rm s3://viquity-database-import-us-east-1/Jobs/nppes/nppes_current_dump --recursive
+
+ctrl X
+Y
 ```
+
 # Delete Original bash files
 ```
-rm clean.sh  dump_to_s3.sh  cron.sh
+rm archive_s3.sh  clean.sh  cron.sh  dump_to_s3.sh  remove_old_dump.sh 
 ```
 
 # Change Permissions of bash Files
 ```
-chmod +x   nppes_clean.sh  nppes_dump_to_s3.sh  nppes_cron.sh
+chmod +x   nppes_archive_s3.sh  nppes_clean.sh  nppes_cron.sh  nppes_dump_to_s3.sh  nppes_remove_old_dump.sh     
+
 ```
 
 # install pip dependencies
