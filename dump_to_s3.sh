@@ -1,4 +1,4 @@
 #!/bin/bash
 mkdir nppesdump
 mv *.csv  *.pdf nppesdump
-aws s3 sync nppesdump/ s3://viquity-database-import-us-east-1/Jobs/nppes/nppesdump-"$(date +%d-%m-%y-%H-%M)"/
+aws s3 sync nppesdump/ s3://viquity-database-import-us-east-1/Jobs/nppes/nppesdump/
